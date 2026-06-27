@@ -3,6 +3,21 @@
    script.js
    ============================================= */
 
+/* -------- SUPABASE: configuração -------- */
+const SUPABASE_URL = 'https://mqgefhctuwuhuyjgrzgm.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_VxCXdNxXmuDw2K_3JfunHA_wPaHDcHC';
+
+let supabaseClient = null;
+try {
+  if (window.supabase) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  } else {
+    console.warn('SDK do Supabase não carregou. Mensagens não serão salvas no banco, mas o site continua funcionando.');
+  }
+} catch (err) {
+  console.error('Erro ao inicializar Supabase:', err);
+}
+
 /* -------- NAVBAR: scroll shadow -------- */
 const navbar = document.getElementById('navbar');
 
@@ -64,18 +79,19 @@ const observerReveal = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => observerReveal.observe(el));
 
-/* -------- FORMULÁRIO → WHATSAPP -------- */
+/* -------- FORMULÁRIO → SUPABASE + WHATSAPP -------- */
 const form = document.getElementById('contact-form');
 // Substitua pelo seu número real (somente dígitos, com DDI e DDD)
-const WHATSAPP_NUMBER = '5511SEUNUMERO';
+const WHATSAPP_NUMBER = '5511992346504';
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const nome     = document.getElementById('nome');
-  const contato  = document.getElementById('contato');
-  const evento   = document.getElementById('evento');
-  const mensagem = document.getElementById('mensagem');
+  const nome      = document.getElementById('nome');
+  const contato   = document.getElementById('contato');
+  const evento    = document.getElementById('evento');
+  const mensagem  = document.getElementById('mensagem');
+  const submitBtn = form.querySelector('button[type="submit"]');
 
   let valid = true;
 
@@ -94,7 +110,33 @@ form.addEventListener('submit', (e) => {
 
   if (!valid) return;
 
-  // Montar mensagem para o WhatsApp
+  // Desabilita o botão durante o envio
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Enviando...';
+  submitBtn.disabled = true;
+
+  // 1) Salva a mensagem no Supabase (se disponível)
+  if (supabaseClient) {
+    try {
+      const { error } = await supabaseClient
+        .from('mensagens')
+        .insert([{
+          nome: nome.value.trim(),
+          contato: contato.value.trim(),
+          tipo_evento: evento.value.trim() || null,
+          mensagem: mensagem.value.trim() || null,
+        }]);
+
+      if (error) {
+        console.error('Erro ao salvar mensagem no Supabase:', error);
+        // Não bloqueia o fluxo do WhatsApp mesmo se o banco falhar
+      }
+    } catch (err) {
+      console.error('Erro de conexão com Supabase:', err);
+    }
+  }
+
+  // 2) Montar mensagem para o WhatsApp
   const msg = [
     `Olá DJ Niel! 👋`,
     ``,
@@ -108,6 +150,11 @@ form.addEventListener('submit', (e) => {
 
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
+
+  // Restaura o botão e limpa o formulário
+  submitBtn.textContent = originalText;
+  submitBtn.disabled = false;
+  form.reset();
 });
 
 /* -------- SMOOTH SCROLL para links internos -------- */
