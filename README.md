@@ -1,9 +1,8 @@
 🎧 DJ Niel — Press Kit
 
 
-Site profissional de press kit para o DJ Niel, artista independente de São Paulo — Zona Leste.
+Site profissional de press kit para o DJ Niel (Rhaniel Fabricio), artista independente de São Paulo — Zona Leste.
 "Do Funk ao Charme, Da ZL pro Mundo"
-
 
 
 🔗 djniel.netlify.app
@@ -26,7 +25,6 @@ Formulário de contato que:
 
 Salva a mensagem no banco de dados (Supabase)
 Abre o WhatsApp com a mensagem formatada automaticamente
-
 
 
 Navegação fixa com scroll suave e link ativo por seção
