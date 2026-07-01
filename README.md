@@ -1,8 +1,9 @@
 🎧 DJ Niel — Press Kit
 
 
-Site profissional de press kit para o DJ Niel (Rhaniel Fabricio), artista independente de São Paulo — Zona Leste.
+Site profissional de press kit para o DJ Niel, artista independente de São Paulo — Zona Leste.
 "Do Funk ao Charme, Da ZL pro Mundo"
+
 
 
 🔗 djniel.netlify.app
@@ -27,6 +28,7 @@ Salva a mensagem no banco de dados (Supabase)
 Abre o WhatsApp com a mensagem formatada automaticamente
 
 
+
 Navegação fixa com scroll suave e link ativo por seção
 Menu mobile responsivo
 Animações de scroll reveal nos elementos
@@ -36,28 +38,45 @@ Deploy automático via GitHub → Netlify
 
 🛠️ Tecnologias
 
-TecnologiaUsoHTML5Estrutura do siteCSS3Estilização (paleta: preto, laranja, prata)JavaScript (Vanilla)Interatividade e integraçõesSupabaseBanco de dados para mensagens de contatoNetlifyHospedagem e deploy contínuoGoogle FontsFontes: Bebas Neue + Inter
+Front-end
+
+TecnologiaVersãoDescriçãoHTML5—Estrutura e semântica do siteCSS3—Estilização completa — paleta preto, laranja e prata, animações e responsividadeJavaScriptES2020+Interatividade, scroll reveal, menu mobile e integraçõesGoogle Fonts—Tipografia: Bebas Neue (títulos) + Inter (corpo)
+
+Back-end & Infraestrutura
+
+TecnologiaDescriçãoSupabaseBanco de dados PostgreSQL na nuvem para armazenar mensagens de contato, com Row Level Security (RLS)NetlifyHospedagem estática com deploy contínuo integrado ao GitHubSupabase JS SDK v2SDK oficial para comunicação entre o site e o banco via API REST
 
 
 📁 Estrutura do Projeto
 
 djniel-presskit/
-├── index.html          # Estrutura principal do site
-├── style.css           # Estilos (paleta, layout, responsividade)
-├── script.js           # Interatividade + integração Supabase/WhatsApp
+│
+├── index.html          # Estrutura principal — seções Hero, Sobre, Repertório,
+│                       # Trajetória, Setup e Contato
+│
+├── style.css           # Todos os estilos — variáveis CSS, layout, componentes,
+│                       # animações e responsividade (mobile-first)
+│
+├── script.js           # Lógica do site — navbar, scroll reveal, menu mobile,
+│                       # integração Supabase e envio via WhatsApp
+│
 ├── README.md           # Documentação do projeto
-├── foto-hero.jpg       # Foto de fundo do hero
-├── foto-sobre.png      # Foto da seção Sobre
-├── logo-white.png      # Logo (versão hero)
-├── logo-white2.png     # Logo (versão navbar/footer)
-└── Segura-Logo.png     # Foto da seção Contato
+│
+└── assets/             # Imagens utilizadas no site
+    ├── foto-hero.jpg       → Foto de fundo do Hero (P&B, efeito cinematográfico)
+    ├── foto-sobre.png      → Foto da seção Sobre
+    ├── logo-white.png      → Logo graffiti (versão Hero)
+    ├── logo-white2.png     → Logo graffiti (versão Navbar e Footer)
+    └── Segura-Logo.png     → Foto da seção Contato
 
 
 🗄️ Banco de Dados (Supabase)
 
 Tabela mensagens
 
-ColunaTipoDescriçãoiduuidIdentificador único (gerado automaticamente)nometextNome do remetentecontatotextWhatsApp ou e-mailtipo_eventotextTipo de evento (opcional)mensagemtextMensagem livre (opcional)criado_emtimestamptzData e hora do enviolidabooleanControle de leitura
+Armazena todas as mensagens enviadas pelo formulário de contato do site.
+
+ColunaTipoObrigatórioDescriçãoiduuid✅Identificador único gerado automaticamentenometext✅Nome do remetentecontatotext✅WhatsApp ou e-mail para retornotipo_eventotext❌Tipo de evento (aniversário, balada, etc.)mensagemtext❌Mensagem livre com detalhes do eventocriado_emtimestamptz✅Data e hora do envio (preenchido automaticamente)lidaboolean✅Controle de leitura — padrão false
 
 
 As mensagens podem ser visualizadas diretamente no painel do Supabase em Table Editor → mensagens.
