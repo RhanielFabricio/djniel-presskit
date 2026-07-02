@@ -21,8 +21,8 @@ Press kit digital desenvolvido para apresentação profissional do DJ Niel a cas
 - **Trajetória** com casas e eventos
 - **Setup técnico** com equipamentos utilizados
 - **Formulário de contato** que:
-  - Salva a mensagem no banco de dados (Supabase)
-  - Abre o WhatsApp com a mensagem formatada automaticamente
+- Salva a mensagem no banco de dados (Supabase)
+- Abre o WhatsApp com a mensagem formatada automaticamente
 - **Navegação fixa** com scroll suave e link ativo por seção
 - **Menu mobile** responsivo
 - **Animações de scroll reveal** nos elementos
@@ -51,62 +51,8 @@ Press kit digital desenvolvido para apresentação profissional do DJ Niel a cas
 
 ---
 
-## 📁 Estrutura do Projeto
-
-```
-=======
-🎧 DJ Niel — Press Kit
-
-
-Site profissional de press kit para o DJ Niel, artista independente de São Paulo — Zona Leste.
-"Do Funk ao Charme, Da ZL pro Mundo"
-
-
-
-🔗 djniel.netlify.app
-
-
-📋 Sobre o Projeto
-
-Press kit digital desenvolvido para apresentação profissional do DJ Niel a casas de show, produtoras e contratantes. O site reúne biografia, repertório, trajetória, setup técnico e formulário de contato integrado com banco de dados e WhatsApp.
-
-
-✨ Funcionalidades
-
-
-Hero cinematográfico com foto de fundo e logo em destaque
-Seção Sobre com bio e estatísticas de carreira
-Repertório com os gêneros musicais do set
-Trajetória com casas e eventos
-Setup técnico com equipamentos utilizados
-Formulário de contato que:
-
-Salva a mensagem no banco de dados (Supabase)
-Abre o WhatsApp com a mensagem formatada automaticamente
-
-
-
-Navegação fixa com scroll suave e link ativo por seção
-Menu mobile responsivo
-Animações de scroll reveal nos elementos
-Deploy automático via GitHub → Netlify
-
-
-
-🛠️ Tecnologias
-
-Front-end
-
-TecnologiaVersãoDescriçãoHTML5—Estrutura e semântica do siteCSS3—Estilização completa — paleta preto, laranja e prata, animações e responsividadeJavaScriptES2020+Interatividade, scroll reveal, menu mobile e integraçõesGoogle Fonts—Tipografia: Bebas Neue (títulos) + Inter (corpo)
-
-Back-end & Infraestrutura
-
-TecnologiaDescriçãoSupabaseBanco de dados PostgreSQL na nuvem para armazenar mensagens de contato, com Row Level Security (RLS)NetlifyHospedagem estática com deploy contínuo integrado ao GitHubSupabase JS SDK v2SDK oficial para comunicação entre o site e o banco via API REST
-
-
 📁 Estrutura do Projeto
 
->>>>>>> 230abfc3f63ccdab77094c635b5547eda3950f03
 djniel-presskit/
 │
 ├── index.html          # Estrutura principal — seções Hero, Sobre, Repertório,
@@ -126,7 +72,8 @@ djniel-presskit/
     ├── logo-white.png      → Logo graffiti (versão Hero)
     ├── logo-white2.png     → Logo graffiti (versão Navbar e Footer)
     └── Segura-Logo.png     → Foto da seção Contato
-<<<<<<< HEAD
+
+
 ```
 
 ---
@@ -187,7 +134,7 @@ Leitura restrita ao painel autenticado do Supabase (só o dono do projeto acessa
 🚀 Como Rodar Localmente
 
 bash# Clone o repositório
->>>>>>> 230abfc3f63ccdab77094c635b5547eda3950f03
+
 git clone https://github.com/RhanielFabricio/djniel-presskit.git
 
 # Entre na pasta
@@ -195,7 +142,7 @@ cd djniel-presskit
 
 # Abra no navegador
 # (use Live Server no VS Code ou qualquer servidor local)
-<<<<<<< HEAD
+
 ```
 
 > ⚠️ Abrir o `index.html` diretamente pelo duplo clique (`file://`) pode causar problemas com o SDK do Supabase. Prefira usar o **Live Server** do VS Code.
