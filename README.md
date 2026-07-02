@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🎧 DJ Niel — Press Kit
 
 > Site profissional de press kit para o DJ Niel, artista independente de São Paulo — Zona Leste.
@@ -272,4 +271,3 @@ GitHub: @RhanielFabricio
 DJ Niel
 Instagram: @djniel011
 WhatsApp: Clique para conversar
->>>>>>> 230abfc3f63ccdab77094c635b5547eda3950f03
